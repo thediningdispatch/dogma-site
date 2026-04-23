@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DOGMA — Réservation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-sub">
+
+  <header class="sub-header">
+    <a href="index.html" class="brand"><img src="assets/logo-dogma.png" alt="DOGMA" class="brand-logo" /></a>
+    <nav class="sub-nav">
+      <a href="menu.html">La Carte</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="talks.html">Actus</a>
+      <a href="reservation.html" class="active">Réservation</a>
+      <a href="commander.html">Commander</a>
+      <a href="https://instagram.com/dogma_paris" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </header>
+
+  <main class="sub-page">
+    <h1 class="sub-page-title">Réserver une table</h1>
+    <p class="sub-page-intro">Rue des Petites Écuries, Paris 10. On vous répond par mail dans les 24h.</p>
+
+    <!--
+      ⚠️ IMPORTANT : ce formulaire utilise Formspree (gratuit) pour envoyer les résas par mail.
+      Pour l'activer :
+        1. Créer un compte sur https://formspree.io (gratuit jusqu'à 50 résas/mois)
+        2. Créer un nouveau formulaire avec comme destinataire : dogmaparis10@gmail.com
+        3. Copier l'endpoint (ex : https://formspree.io/f/abc123xyz)
+        4. Remplacer YOUR_FORMSPREE_ID ci-dessous par l'endpoint
+      Alternative : changer action="mailto:dogmaparis10@gmail.com" method="POST" enctype="text/plain"
+                    (ouvre le client mail du visiteur, plus basique mais fonctionne sans service tiers)
+    -->
+    <form class="resa-form"
+          action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+          method="POST">
+
+      <input type="hidden" name="_subject" value="🍔 Nouvelle réservation Dogma" />
+      <input type="hidden" name="_language" value="fr" />
+      <!-- Honeypot anti-spam -->
+      <input type="text" name="_gotcha" style="display:none" />
+
+      <div class="resa-row">
+        <label class="resa-field">
+          <span class="resa-label">Date</span>
+          <input type="date" name="date" required />
+        </label>
+        <label class="resa-field">
+          <span class="resa-label">Heure</span>
+          <select name="heure" required>
+            <option value="">—</option>
+            <option>12:00</option><option>12:30</option><option>13:00</option>
+            <option>13:30</option><option>14:00</option>
+            <option>19:00</option><option>19:30</option><option>20:00</option>
+            <option>20:30</option><option>21:00</option><option>21:30</option>
+          </select>
+        </label>
+        <label class="resa-field">
+          <span class="resa-label">Convives</span>
+          <select name="convives" required>
+            <option value="">—</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+            <option>5</option><option>6</option><option>7</option><option>8</option>
+            <option>9+</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="resa-row">
+        <label class="resa-field">
+          <span class="resa-label">Prénom</span>
+          <input type="text" name="prenom" required />
+        </label>
+        <label class="resa-field">
+          <span class="resa-label">Nom</span>
+          <input type="text" name="nom" required />
+        </label>
+      </div>
+
+      <div class="resa-row">
+        <label class="resa-field">
+          <span class="resa-label">Email</span>
+          <input type="email" name="email" required />
+        </label>
+        <label class="resa-field">
+          <span class="resa-label">Téléphone</span>
+          <input type="tel" name="telephone" required />
+        </label>
+      </div>
+
+      <label class="resa-field resa-field--full">
+        <span class="resa-label">Allergies, remarques, occasion spéciale&nbsp;?</span>
+        <textarea name="remarques" rows="3" placeholder="Optionnel — anniversaire, allergies, demande particulière…"></textarea>
+      </label>
+
+      <label class="resa-consent">
+        <input type="checkbox" required />
+        <span>J'accepte d'être contacté par Dogma pour confirmer ma réservation.</span>
+      </label>
+
+      <button type="submit" class="resa-submit">
+        <span class="arrow">→</span> Envoyer la demande
+      </button>
+
+      <p class="resa-note">
+        La réservation devient ferme une fois confirmée par mail par l'équipe Dogma.<br/>
+        Pour les groupes ≥ 10&nbsp;personnes, contactez directement <a href="mailto:dogmaparis10@gmail.com">dogmaparis10@gmail.com</a>.
+      </p>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-col">
+        <p class="site-footer-tag">Collaboration, catering, …</p>
+        <a href="mailto:dogmaparis10@gmail.com" class="site-footer-link site-footer-link--arrow">
+          <span class="arrow">→</span> dogmaparis10@gmail.com
+        </a>
+        <div class="site-footer-socials">
+          <a href="https://instagram.com/dogma_paris" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://deliveroo.fr/fr/menu/paris/10eme-gare-du-nord/dogma-paris" target="_blank" rel="noopener">Deliveroo</a>
+          <a href="https://www.ubereats.com/fr/store/dogma-poulet-frit-&-burgers/hNxqQMx5V-ivfFukdBY9_g" target="_blank" rel="noopener">Uber&nbsp;Eats</a>
+        </div>
+      </div>
+      <div class="site-footer-col site-footer-col--center">
+        <img src="assets/logo-dogma.png" alt="DOGMA" class="site-footer-brand-logo" />
+        <p class="site-footer-place">Paris 10<br/>Adresse</p>
+      </div>
+      <div class="site-footer-col site-footer-col--right">
+        <p class="site-footer-motto">PROPER<br/>STREET<br/>FOOD</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DOGMA</title>
+  <meta name="description" content="Dogma — burger shop. Paris 10." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-home">
+
+  <!-- Header : logo dans le flow normal (pas de position absolute) -->
+  <header class="home-header">
+    <a href="/" class="home-logo"><img src="assets/logo-dogma.png" alt="DOGMA" /></a>
+  </header>
+
+  <!-- HOME : 6 burgers = 6 boutons nav, avec texte courbé épousant la base du bun -->
+  <main class="home-stage">
+    <section class="burger-grid burger-grid--home">
+
+      <div class="burger grow" style="--delay:0s">
+        <a href="menu.html" aria-label="La Carte">
+          <img src="assets/menu/CHICK_MAC.png" alt="" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="curve-0" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#curve-0" startOffset="50%" text-anchor="middle">LA CARTE</textPath></text>
+          </svg>
+        </a>
+      </div>
+
+      <div class="burger grow" style="--delay:0.8s">
+        <a href="https://www.ubereats.com/fr/store/dogma-poulet-frit-&-burgers/hNxqQMx5V-ivfFukdBY9_g" target="_blank" rel="noopener" aria-label="Uber Eats">
+          <img src="assets/menu/HOT_MAC.png" alt="" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="curve-1" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#curve-1" startOffset="50%" text-anchor="middle">UBER EATS</textPath></text>
+          </svg>
+        </a>
+      </div>
+
+      <div class="burger grow" style="--delay:1.6s">
+        <a href="galerie.html" aria-label="Galerie">
+          <img src="assets/menu/SOPRANO_MEATBALL_BURGER.png" alt="" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="curve-2" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#curve-2" startOffset="50%" text-anchor="middle">GALERIE</textPath></text>
+          </svg>
+        </a>
+      </div>
+
+      <div class="burger grow" style="--delay:2.4s">
+        <a href="https://instagram.com/dogma_paris" target="_blank" rel="noopener" aria-label="Instagram">
+          <img src="assets/menu/TUNA_MELT.png" alt="" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="curve-3" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#curve-3" startOffset="50%" text-anchor="middle">INSTAGRAM</textPath></text>
+          </svg>
+        </a>
+      </div>
+
+      <div class="burger grow" style="--delay:3.2s">
+        <a href="https://deliveroo.fr/fr/menu/paris/10eme-gare-du-nord/dogma-paris" target="_blank" rel="noopener" aria-label="Deliveroo">
+          <img src="assets/menu/FRITES_MAISON.png" alt="" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="curve-4" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#curve-4" startOffset="50%" text-anchor="middle">DELIVEROO</textPath></text>
+          </svg>
+        </a>
+      </div>
+
+      <div class="burger grow" style="--delay:4s">
+        <a href="talks.html" aria-label="Actus">
+          <img src="assets/menu/ONION_RINGS.png" alt="" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="curve-5" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#curve-5" startOffset="50%" text-anchor="middle">ACTUS</textPath></text>
+          </svg>
+        </a>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ============ FOOTER BANNER style Nouvelle Garde ============ -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+
+      <!-- Col 1 : contact général + socials -->
+      <div class="site-footer-col">
+        <p class="site-footer-tag">Collaboration, catering, …</p>
+        <a href="mailto:dogmaparis10@gmail.com" class="site-footer-link site-footer-link--arrow">
+          <span class="arrow">→</span> dogmaparis10@gmail.com
+        </a>
+        <div class="site-footer-socials">
+          <a href="https://instagram.com/dogma_paris" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://deliveroo.fr/fr/menu/paris/10eme-gare-du-nord/dogma-paris" target="_blank" rel="noopener">Deliveroo</a>
+          <a href="https://www.ubereats.com/fr/store/dogma-poulet-frit-&-burgers/hNxqQMx5V-ivfFukdBY9_g" target="_blank" rel="noopener">Uber&nbsp;Eats</a>
+        </div>
+      </div>
+
+      <!-- Col 2 : lieu (logo retiré sur la home — déjà en haut-gauche) -->
+      <div class="site-footer-col site-footer-col--center">
+        <p class="site-footer-place">Paris 10<br/>Adresse</p>
+      </div>
+
+      <!-- Col 3 : contact presse -->
+      <div class="site-footer-col site-footer-col--right">
+        <p class="site-footer-motto">PROPER<br/>STREET<br/>FOOD</p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

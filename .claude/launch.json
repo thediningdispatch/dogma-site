@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dogma-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "/Users/thediningdispatch/Desktop/001_BISTROT_BASTARDS/006_DOGMA/SITE"],
+      "port": 8765
+    }
+  ]
+}

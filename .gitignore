@@ -1,0 +1,20 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Node (on a juste live-server en dev)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Exports lourds / originaux RAW (si tu en mets dans le dossier)
+*.psd
+*.ai
+*.raw
+*.RAW

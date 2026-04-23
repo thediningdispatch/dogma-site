@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DOGMA — La Carte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-sub page-menu">
+
+  <header class="sub-header">
+    <a href="index.html" class="brand"><img src="assets/logo-dogma.png" alt="DOGMA" class="brand-logo" /></a>
+    <nav class="sub-nav">
+      <a href="menu.html" class="active">La Carte</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="reservation.html">Réservation</a>
+      <a href="talks.html">Actus</a>
+      <a href="commander.html">Commander</a>
+      <a href="https://instagram.com/dogma_paris" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </header>
+
+  <main class="sub-page">
+    <h1 class="sub-page-title">La Carte</h1>
+
+    <!-- =========== BURGERS =========== -->
+    <section class="menu-section">
+      <h2 class="menu-section-title">Burgers</h2>
+      <div class="burger-grid burger-grid--menu">
+
+        <div class="burger grow" style="--delay:0s" id="chick-mac">
+          <img src="assets/menu/CHICK_MAC.png" alt="Chick Mac" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="m-curve-0" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#m-curve-0" startOffset="50%" text-anchor="middle">CHICK MAC</textPath></text>
+          </svg>
+          <p class="item-desc">Bun pomme de terre, cuisse de poulet croustillante, sauce big mac maison, cheddar, oignons, salade.</p>
+          <p class="item-price">13&nbsp;€</p>
+        </div>
+
+        <div class="burger grow" style="--delay:0.6s" id="hot-mac">
+          <img src="assets/menu/HOT_MAC.png" alt="Hot Mac" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="m-curve-1" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#m-curve-1" startOffset="50%" text-anchor="middle">HOT MAC</textPath></text>
+          </svg>
+          <p class="item-desc">Le Chick Mac avec jalapeños et chicken épicé. Pour les piquants.</p>
+          <p class="item-price">13&nbsp;€</p>
+        </div>
+
+        <div class="burger grow" style="--delay:1.2s" id="soprano">
+          <img src="assets/menu/SOPRANO_MEATBALL_BURGER.png" alt="Soprano Meatball" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="m-curve-2" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#m-curve-2" startOffset="50%" text-anchor="middle">SOPRANO</textPath></text>
+          </svg>
+          <p class="item-desc">Boulettes italiennes maison, sauce tomate, mozzarella, basilic frais.</p>
+          <p class="item-price">14&nbsp;€</p>
+        </div>
+
+        <div class="burger grow" style="--delay:1.8s" id="tuna-melt">
+          <img src="assets/menu/TUNA_MELT.png" alt="Tuna Melt" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="m-curve-3" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#m-curve-3" startOffset="50%" text-anchor="middle">TUNA MELT</textPath></text>
+          </svg>
+          <p class="item-desc">Thon grillé, cheddar fondu, oignons rouges, sauce maison sur pain de mie toasté.</p>
+          <p class="item-price">13&nbsp;€</p>
+        </div>
+
+      </div>
+
+      <!-- Burgers sans photo : OG + El Diablo -->
+      <div class="text-item-grid">
+        <article class="text-item" id="og">
+          <h3 class="text-item-name">OG</h3>
+          <p class="text-item-desc">Le best-seller. Fried chicken des Landes, cheddar, sauce secrète, pickles, oignons, salade.</p>
+          <p class="item-price">13&nbsp;€</p>
+        </article>
+        <article class="text-item" id="el-diablo">
+          <h3 class="text-item-name">El Diablo</h3>
+          <p class="text-item-desc">Chicken croustillant, jalapeños, iceberg, sauce ranch. Spicy mais friendly.</p>
+          <p class="item-price">13&nbsp;€</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========== SIDES =========== -->
+    <section class="menu-section">
+      <h2 class="menu-section-title">Accompagnements</h2>
+      <div class="burger-grid burger-grid--menu">
+
+        <div class="burger grow" style="--delay:0s" id="frites">
+          <img src="assets/menu/FRITES_MAISON.png" alt="Frites maison" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="m-curve-4" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#m-curve-4" startOffset="50%" text-anchor="middle">FRITES MAISON</textPath></text>
+          </svg>
+          <p class="item-desc">Frites fraîches coupées, double cuisson.</p>
+          <p class="item-price">4&nbsp;€</p>
+        </div>
+
+        <div class="burger grow" style="--delay:0.6s" id="onion-rings">
+          <img src="assets/menu/ONION_RINGS.png" alt="Onion Rings" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="m-curve-5" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#m-curve-5" startOffset="50%" text-anchor="middle">ONION RINGS</textPath></text>
+          </svg>
+          <p class="item-desc">Beignets d'oignons croustillants, sauce ranch.</p>
+          <p class="item-price">5&nbsp;€</p>
+        </div>
+
+        <div class="burger grow" style="--delay:1.2s" id="coleslaw">
+          <img src="assets/menu/COLESLAW.png" alt="Coleslaw" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="m-curve-6" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#m-curve-6" startOffset="50%" text-anchor="middle">COLESLAW</textPath></text>
+          </svg>
+          <p class="item-desc">Chou blanc, carotte, sauce maison.</p>
+          <p class="item-price">3&nbsp;€</p>
+        </div>
+
+        <div class="burger grow" style="--delay:1.8s" id="italian-poutine">
+          <img src="assets/menu/ITALIAN_POUTINE.png" alt="Italian Poutine" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="m-curve-7" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#m-curve-7" startOffset="50%" text-anchor="middle">ITALIAN POUTINE</textPath></text>
+          </svg>
+          <p class="item-desc">Frites, sauce tomate, mozzarella, parmesan.</p>
+          <p class="item-price">6&nbsp;€</p>
+        </div>
+
+        <div class="burger grow" style="--delay:2.4s" id="cesar">
+          <img src="assets/menu/SALADE_CESAR.png" alt="Salade César" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="m-curve-8" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#m-curve-8" startOffset="50%" text-anchor="middle">SALADE CÉSAR</textPath></text>
+          </svg>
+          <p class="item-desc">Romaine, poulet croustillant, croûtons, parmesan, sauce César maison.</p>
+          <p class="item-price">12&nbsp;€</p>
+        </div>
+
+        <div class="burger grow" style="--delay:3s" id="cesar-side">
+          <img src="assets/menu/SALADE_CESAR_SIDE.png" alt="Salade César side" />
+          <svg class="burger-curve" viewBox="0 0 320 60" aria-hidden="true">
+            <defs><path id="m-curve-9" d="M 20 10 Q 160 58 300 10" fill="none" /></defs>
+            <text><textPath href="#m-curve-9" startOffset="50%" text-anchor="middle">CÉSAR SIDE</textPath></text>
+          </svg>
+          <p class="item-desc">Version side.</p>
+          <p class="item-price">5&nbsp;€</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========== MENUS & TENDERS =========== -->
+    <section class="menu-section">
+      <h2 class="menu-section-title">Menus &amp; Tenders</h2>
+      <div class="text-item-grid">
+        <article class="text-item" id="menu-burger">
+          <h3 class="text-item-name">Menu Burger</h3>
+          <p class="text-item-desc">Burger au choix + side au choix + boisson.</p>
+          <p class="item-price">16&nbsp;€</p>
+        </article>
+        <article class="text-item" id="tenders-2">
+          <h3 class="text-item-name">Tenders (×2)</h3>
+          <p class="text-item-desc">Aiguillettes de poulet pané, classic ou spicy.</p>
+          <p class="item-price">10&nbsp;€</p>
+        </article>
+        <article class="text-item" id="tenders-3">
+          <h3 class="text-item-name">Tenders (×3)</h3>
+          <p class="text-item-desc">Aiguillettes de poulet pané, classic ou spicy.</p>
+          <p class="item-price">14&nbsp;€</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========== BOISSONS =========== -->
+    <section class="menu-section">
+      <h2 class="menu-section-title">Boissons</h2>
+      <div class="drinks-list">
+        <div class="drink"><span>Coca / Coca Zero</span><span class="item-price">3&nbsp;€</span></div>
+        <div class="drink"><span>Limonade artisanale</span><span class="item-price">4&nbsp;€</span></div>
+        <div class="drink"><span>Bière pression</span><span class="item-price">5&nbsp;€</span></div>
+        <div class="drink"><span>Eau plate / pétillante</span><span class="item-price">3&nbsp;€</span></div>
+      </div>
+    </section>
+
+    <p class="sub-page-footnote">Prix indicatifs (source Uber&nbsp;Eats / Deliveroo) — à valider avec l'équipe Dogma.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-col">
+        <p class="site-footer-tag">Collaboration, catering, …</p>
+        <a href="mailto:dogmaparis10@gmail.com" class="site-footer-link site-footer-link--arrow">
+          <span class="arrow">→</span> dogmaparis10@gmail.com
+        </a>
+        <div class="site-footer-socials">
+          <a href="https://instagram.com/dogma_paris" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://deliveroo.fr/fr/menu/paris/10eme-gare-du-nord/dogma-paris" target="_blank" rel="noopener">Deliveroo</a>
+          <a href="https://www.ubereats.com/fr/store/dogma-poulet-frit-&-burgers/hNxqQMx5V-ivfFukdBY9_g" target="_blank" rel="noopener">Uber&nbsp;Eats</a>
+        </div>
+      </div>
+      <div class="site-footer-col site-footer-col--center">
+        <img src="assets/logo-dogma.png" alt="DOGMA" class="site-footer-brand-logo" />
+        <p class="site-footer-place">Paris 10<br/>Adresse</p>
+      </div>
+      <div class="site-footer-col site-footer-col--right">
+        <p class="site-footer-motto">PROPER<br/>STREET<br/>FOOD</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
