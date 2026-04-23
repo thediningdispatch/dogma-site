@@ -15,8 +15,8 @@
 
   --color-bg: var(--dogma-creme);
   --color-text: var(--dogma-noir);
-  --color-primary: var(--dogma-terracotta);
-  --color-menu: var(--dogma-terracotta-soft);   /* palette spécifique menu */
+  --color-primary: var(--dogma-noir);          /* brand color = noir (swap depuis terracotta 2026-04-23) */
+  --color-menu: var(--dogma-noir);             /* idem menu */
 
   --font-display: 'Anton', 'Impact', sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
@@ -212,7 +212,7 @@ a { color: inherit; text-decoration: none; }
   transition: fill 0.2s ease;
 }
 .burger a:hover .burger-curve text,
-.burger:hover .burger-curve text { fill: var(--dogma-rouge-ketchup); }
+.burger:hover .burger-curve text { fill: var(--color-primary); }
 
 /* ============ SUB PAGES (menu / galerie / presse / talks / commander) ============ */
 .sub-page {
@@ -249,7 +249,7 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(2.5rem, 4.5vw, 3.5rem);
-  color: var(--color-menu);
+  color: var(--color-primary);
   margin: 0 0 2.5rem;
   letter-spacing: -0.01em;
 }
@@ -283,7 +283,7 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--font-mono);
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--color-menu);
+  color: var(--color-primary);
   margin: 0;
 }
 
@@ -510,7 +510,7 @@ a { color: inherit; text-decoration: none; }
   gap: 0.5rem;
 }
 .resa-submit .arrow { transition: transform 0.2s ease; font-weight: 700; }
-.resa-submit:hover { background: var(--dogma-rouge-ketchup); }
+.resa-submit:hover { background: var(--color-primary); }
 .resa-submit:hover .arrow { transform: translateX(4px); }
 
 .resa-note {
@@ -575,7 +575,7 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.4rem;
-  color: var(--color-menu);
+  color: var(--color-primary);
   margin: 1.75rem 0 0.5rem;
   letter-spacing: 0.01em;
 }
@@ -630,7 +630,7 @@ a { color: inherit; text-decoration: none; }
   min-height: 200px;
 }
 .order-card:hover {
-  background: var(--dogma-rouge-ketchup);
+  background: var(--color-primary);
   transform: translateY(-3px);
 }
 .order-platform {
@@ -734,6 +734,15 @@ a { color: inherit; text-decoration: none; }
   color: var(--color-primary);
   opacity: 0.85;
 }
+.site-footer-hours {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  margin: 0.5rem 0 0;
+  color: var(--color-primary);
+  opacity: 0.6;
+  line-height: 1.5;
+}
 /* Col center : gap réduit logo ↔ Paris 10 (logo descend vers Paris 10, Paris 10 reste en bas) */
 .site-footer-col--center { gap: 0.25rem; }
 
@@ -744,7 +753,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 0.95;
   letter-spacing: 0.01em;
   margin: 0;
-  color: var(--dogma-terracotta, var(--color-accent));
+  color: var(--color-primary);
   text-transform: uppercase;
 }
 .page-home .site-footer-motto { font-size: 1.8rem; }
