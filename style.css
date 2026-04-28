@@ -26,8 +26,10 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 
-  /* HOME : tout tient dans le viewport, sans scroll */
+  /* HOME : tout tient dans le viewport, sans scroll
+     dvh = dynamic viewport height — compense la barre d'adresse mobile (Safari iOS) */
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
@@ -196,10 +198,44 @@ footer {
   flex-shrink: 0;
 }
 
-/* Mobile : ajustements pour très petits viewports */
-@media (max-height: 640px) {
-  .hero > img:only-child { max-height: 46vh; }
-  .hero--slideshow { max-height: 46vh; width: min(340px, 80vw); }
+/* Mobile / petits viewports : tout tient sans scroll
+   triggered sur écrans étroits (<= 600px) ou peu hauts (<= 850px = iPhone 14 Pro) */
+@media (max-width: 600px), (max-height: 850px) {
+  .wrap {
+    padding: clamp(8px, 1.6vh, 18px) 16px;
+    gap: clamp(6px, 1.2vh, 14px);
+  }
+  .hero > img:only-child { max-height: 38vh; max-width: min(380px, 90vw); }
+  .hero--slideshow {
+    width: min(320px, 72vw);
+    aspect-ratio: 4 / 5;     /* moins haut, plus compact que le 3/4 desktop */
+    max-height: 42vh;
+  }
+  .tagline {
+    font-size: clamp(15px, 1.9vh, 19px);
+    line-height: 1.25;
+  }
+  nav.inline {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+  .info {
+    font-size: 12.5px;
+    line-height: 1.55;
+  }
+  .info .address { font-size: inherit; margin-bottom: 4px; }
+  .info .hours { margin-bottom: 4px; }
+  footer {
+    padding: 10px 20px;
+    font-size: 10px;
+  }
+}
+
+/* Très petits écrans (iPhone SE 1/2 ≈ 568-667px) : encore plus compact */
+@media (max-height: 670px) {
+  .hero--slideshow { max-height: 32vh; width: min(260px, 65vw); }
+  .tagline { font-size: 14px; }
+  .info { font-size: 12px; }
 }
 
 /* =========================================================
