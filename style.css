@@ -1,843 +1,323 @@
-/* ============================================================
-   DOGMA — Stylesheet partagé (home + menu + galerie + presse + talks + commander)
-   Inspiration : home Nouvelle Garde (lanouvellegarde.com)
-   ============================================================ */
+/* =========================================================
+   DOGMA — SITE V2
+   Direction : minimaliste, calque inspi (Swan Room / Win Son / S&P)
+   Palette charte : noir #0F0F0F · crème #F5EAD2 · terracotta #C4421F (accent)
+   Typo : Anton italic (display) + Inter (body)
+   ========================================================= */
 
 :root {
-  --dogma-noir: #0F0F0F;
-  --dogma-creme: #F5EAD2;
-  --dogma-terracotta: #C4421F;        /* rouge brand, pour BRAND/HEADER/FOOTER */
-  --dogma-terracotta-soft: #D67A5E;   /* version plus pastel — pour le menu (titres de section, prix, desc) */
-  --dogma-terracotta-pale: #E5A68D;   /* encore plus doux — hovers, accents, borders */
-  --dogma-orange: #FF9737;
-  --dogma-rouge-ketchup: #C71F2C;
-  --dogma-doré: #E8B847;
+  --noir: #0F0F0F;
+  --creme: #F5EAD2;
+  --terracotta: #C4421F;
 
-  --color-bg: var(--dogma-creme);
-  --color-text: var(--dogma-noir);
-  --color-primary: var(--dogma-noir);          /* brand color = noir (swap depuis terracotta 2026-04-23) */
-  --color-menu: var(--dogma-noir);             /* idem menu */
-
-  --font-display: 'Anton', 'Impact', sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-mono: 'Space Mono', monospace;
-
-  --container-max: 1440px;
-  --gap-block: 24px;
+  --container: 720px;
+  --gutter: 24px;
 }
 
-/* Reset */
-*, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
 body {
-  font-family: var(--font-body);
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: var(--creme);
+  color: var(--noir);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
   line-height: 1.5;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-}
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
 
-/* ============ HEADERS ============ */
-.sub-header {
-  padding: 1.5rem 2rem;
-  max-width: var(--container-max);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem 2rem;
-  justify-content: space-between;
-  flex-wrap: wrap;   /* si pas assez de place, nav wrap en-dessous du logo */
-}
-.brand {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;  /* logo ne se comprime jamais */
-}
-.brand-logo {
-  height: clamp(60px, 7vw, 96px);  /* agrandi : 60→96px */
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-.sub-nav { flex-wrap: wrap; }  /* nav wrap si besoin au lieu de déborder */
-
-/* Logo footer — version standard (sub-pages) */
-.site-footer-brand-logo {
-  height: clamp(64px, 7vw, 96px);
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-/* Home : logo top retiré, donc logo footer en version BIG (prend le rôle visuel du brand) */
-.page-home .site-footer-brand-logo {
-  height: clamp(140px, 16vw, 220px);
-}
-
-.sub-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.sub-nav a {
-  color: var(--color-text);
-  opacity: 0.65;
-  padding: 0.25rem 0;
-  border-bottom: 1px solid transparent;
-  transition: all 0.2s ease;
-}
-.sub-nav a:hover, .sub-nav a.active {
-  color: var(--color-primary);
-  opacity: 1;
-  border-bottom-color: var(--color-primary);
-}
-
-/* ============ HOME : desktop = 100vh, mobile = scrollable naturel ============ */
-.page-home {
+  /* HOME : tout tient dans le viewport, sans scroll */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 0;
 }
-.page-home .home-stage {
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .25s ease;
+}
+a:hover { color: var(--terracotta); }
+
+img { display: block; max-width: 100%; height: auto; }
+
+/* ---------- Layout home (no-scroll) ---------- */
+.wrap {
   flex: 1;
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(16px, 3vh, 32px) var(--gutter);
+  text-align: center;
+
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 2rem 2rem;
-  min-height: 0;
-}
-.page-home .burger-grid--home .burger img { max-height: min(30vh, 260px); }
-
-/* Desktop uniquement : on fixe 100vh pour que tout tienne dans le viewport */
-@media (min-width: 1025px) and (min-height: 700px) {
-  .page-home { height: 100vh; overflow: hidden; }
+  gap: clamp(12px, 2.2vh, 24px);
 }
 
-/* Header home — logo dans le flow, pas en absolute */
-.home-header {
-  flex-shrink: 0;
-  padding: 1.25rem 2rem 0;
-  display: flex;
-  align-items: center;
+/* H1 visuellement caché mais lisible par les lecteurs d'écran */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
 }
-.home-logo { display: inline-block; }
-.home-logo img {
-  height: clamp(80px, 9vw, 140px);
-  width: auto;
+
+/* ---------- Logo top-right (petit) ---------- */
+.logo-mark {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 10;
   display: block;
+  line-height: 0;
 }
-@media (max-width: 640px) {
-  .home-header { padding: 1rem 1rem 0; }
-  .home-logo img { height: 64px; }
+.logo-mark img {
+  height: clamp(40px, 6vh, 56px);
+  width: auto;
+}
+.logo-mark:hover img { opacity: 0.8; transition: opacity .25s ease; }
+@media (max-width: 480px) {
+  .logo-mark { top: 14px; right: 14px; }
+  .logo-mark img { height: 38px; }
 }
 
-.home-stage {
-  padding: 2rem;
-  max-width: var(--container-max);
-  margin: 0 auto;
+/* ---------- Hero photo / Slideshow ---------- */
+.hero {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.burger-grid--home {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem 2.5rem;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  align-items: center;
+/* Mode 1 image (fallback) */
+.hero > img:only-child {
+  width: auto;
+  max-width: min(770px, 95vw);
+  max-height: clamp(336px, 60vh, 552px);
+  object-fit: cover;
+  border-radius: 4px;
 }
 
-/* Burger element (commun home + menu) */
-.burger {
+/* Mode slideshow — 5 photos en fondu enchaîné, full CSS */
+.hero--slideshow {
   position: relative;
-  transform: translateY(0);
+  width: min(440px, 88vw);
+  aspect-ratio: 3 / 4;          /* portrait modéré pour matcher les photos verticales */
+  max-height: 62vh;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.hero--slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: slideshow 30s infinite;
+}
+/* 5 photos × 6s chacune = 30s loop. Crossfade ~0.8s. */
+.hero--slideshow img:nth-child(1) { animation-delay:  0s; }
+.hero--slideshow img:nth-child(2) { animation-delay:  6s; }
+.hero--slideshow img:nth-child(3) { animation-delay: 12s; }
+.hero--slideshow img:nth-child(4) { animation-delay: 18s; }
+.hero--slideshow img:nth-child(5) { animation-delay: 24s; }
+
+@keyframes slideshow {
+  0%   { opacity: 0; }
+  3%   { opacity: 1; }   /* fade in (0.9s) */
+  20%  { opacity: 1; }   /* visible */
+  23%  { opacity: 0; }   /* fade out (0.9s) */
+  100% { opacity: 0; }
+}
+
+/* Respect des préférences accessibility : pas de slideshow auto */
+@media (prefers-reduced-motion: reduce) {
+  .hero--slideshow img { animation: none; opacity: 0; }
+  .hero--slideshow img:nth-child(1) { opacity: 1; }
+}
+
+/* ---------- Tagline ---------- */
+.tagline {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: clamp(20px, 2.6vh, 26px);
+  line-height: 1.3;
+  max-width: 520px;
+  margin: 0;
+}
+
+/* ---------- Nav inline (style Swan Room) ---------- */
+nav.inline {
+  font-size: clamp(12px, 1.4vh, 14px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.8;
+}
+nav.inline a { display: inline-block; padding: 4px 6px; }
+nav.inline .sep {
+  display: inline-block;
+  margin: 0 2px;
+  opacity: 0.4;
+}
+
+/* ---------- Bloc info ---------- */
+.info {
+  margin: 0;
+  font-size: clamp(13px, 1.5vh, 15px);
+  line-height: 1.7;
+  text-transform: lowercase;
+}
+.info .address { font-size: inherit; margin-bottom: 8px; }
+.info .address a:hover { text-decoration: underline; }
+.info .hours { margin-bottom: 8px; }
+.info .email a {
+  border-bottom: 1px solid var(--noir);
+  padding-bottom: 1px;
+}
+.info .email a:hover { border-bottom-color: var(--terracotta); }
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 16px 24px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+
+/* Mobile : ajustements pour très petits viewports */
+@media (max-height: 640px) {
+  .hero > img:only-child { max-height: 46vh; }
+  .hero--slideshow { max-height: 46vh; width: min(340px, 80vw); }
+}
+
+/* =========================================================
+   PAGE MENU — burgers flottants en N&B
+   ========================================================= */
+
+.menu-header {
+  text-align: center;
+  padding: 40px var(--gutter) 24px;
+}
+.menu-header .back {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.menu-title {
+  font-family: 'Anton', sans-serif;
+  font-style: italic;
+  font-size: clamp(48px, 9vw, 96px);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.menu-subtitle {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 48px;
+}
+
+/* Grille de produits */
+.menu-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--gutter) 64px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px 32px;
+}
+@media (min-width: 640px) {
+  .menu-grid { grid-template-columns: 1fr 1fr; gap: 72px 48px; }
+}
+@media (min-width: 960px) {
+  .menu-grid { grid-template-columns: repeat(3, 1fr); gap: 88px 56px; }
+}
+
+.product {
+  text-align: center;
+}
+
+/* Burger PNG en grayscale + animation float */
+.product .burger {
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto 16px;
+  filter: grayscale(100%) contrast(1.05);
   animation: float 6s ease-in-out infinite;
-  animation-delay: var(--delay, 0s);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  transition: filter .35s ease, transform .35s ease;
 }
-.burger > a,
-.burger {
-  /* le lien ou le div direct porte le contenu empilé */
-}
-.burger a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-  width: 100%;
-}
-.burger img {
-  width: 100%;
-  height: auto;
-  max-height: 260px;
-  object-fit: contain;
+.product:nth-child(2n) .burger { animation-duration: 7.5s; animation-delay: -2s; }
+.product:nth-child(3n) .burger { animation-duration: 5.5s; animation-delay: -1s; }
+.product:hover .burger {
+  filter: grayscale(0%);            /* couleur au survol — le détail qui réveille */
+  transform: scale(1.02);
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-20px); }
+  50%      { transform: translateY(-10px); }
+}
+.product:hover .burger {
+  /* override avec scale en hover */
+  animation-play-state: paused;
 }
 
-.grow a {
-  display: block;
-  transition: transform 0.25s ease-in-out;
-}
-.grow a:hover { transform: scale(1.06); }
-
-/* Texte courbé sous chaque burger (SVG textPath) */
-.burger-curve {
-  width: 100%;
-  max-width: 280px;
-  height: auto;
-  margin-top: -8px;
-  pointer-events: none;
-  overflow: visible;
-}
-.burger-curve text {
-  font-family: var(--font-display);
+.product .name {
+  font-family: 'Anton', sans-serif;
   font-style: italic;
-  font-size: 26px;
-  fill: var(--color-primary);
-  letter-spacing: 0.08em;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  margin-bottom: 6px;
   text-transform: uppercase;
-  transition: fill 0.2s ease;
 }
-.burger a:hover .burger-curve text,
-.burger:hover .burger-curve text { fill: var(--color-primary); }
-
-/* ============ SUB PAGES (menu / galerie / presse / talks / commander) ============ */
-.sub-page {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 2rem 2rem 5rem;
-}
-.sub-page-title {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(3rem, 6vw, 5rem);
-  color: var(--color-primary);
-  letter-spacing: -0.01em;
-  margin: 1rem 0 0.5rem;
-}
-.sub-page-intro {
-  font-size: 1.1rem;
-  max-width: 640px;
-  opacity: 0.8;
-  margin: 0 0 3rem;
-}
-.sub-page-footnote {
-  margin: 3rem auto 0;
-  font-size: 0.85rem;
-  opacity: 0.5;
-  text-align: center;
-  font-style: italic;
-}
-.sub-page-footnote a { color: var(--color-primary); font-weight: 600; }
-
-/* ============ MENU page (palette pastel : rouge plus doux) ============ */
-.menu-section { margin-bottom: 4rem; }
-.menu-section-title {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(2.5rem, 4.5vw, 3.5rem);
-  color: var(--color-primary);
-  margin: 0 0 2.5rem;
-  letter-spacing: -0.01em;
-}
-
-/* Sur la page menu uniquement, le texte courbé des plats est en pastel */
-.page-menu .burger-curve text { fill: var(--color-menu); }
-.page-menu .burger a:hover .burger-curve text,
-.page-menu .burger:hover .burger-curve text { fill: var(--color-primary); }
-
-.burger-grid--menu {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem 2.5rem;
-  margin-bottom: 2rem;
-}
-.burger-grid--menu .burger {
-  align-items: center;
-  text-align: center;
-}
-.burger-grid--menu .burger img { max-height: 220px; }
-
-.item-desc {
-  font-size: 0.92rem;
-  opacity: 0.75;
-  line-height: 1.5;
-  margin: 0.25rem 0 0.5rem;
-  max-width: 280px;
-  text-align: center;
-}
-.item-price {
-  font-family: var(--font-mono);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin: 0;
-}
-
-/* Items texte seul (OG, El Diablo, Menus, Tenders) */
-.text-item-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-.text-item {
-  padding: 1.5rem 1.5rem 1.25rem;
-  background: rgba(15, 15, 15, 0.04);
-  border-left: 4px solid var(--color-menu);
-  border-radius: 8px;
-}
-.text-item-name {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  letter-spacing: 0.02em;
-  margin: 0 0 0.5rem;
-  color: var(--color-text);
-}
-.text-item-desc {
-  font-size: 0.92rem;
-  opacity: 0.75;
-  margin: 0 0 0.75rem;
-}
-
-.drinks-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem 2rem;
-  max-width: 800px;
-}
-.drink {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 0.75rem 0;
-  border-bottom: 1px dashed rgba(15, 15, 15, 0.2);
-  font-size: 1rem;
-}
-
-/* ============ GALERIE page ============ */
-.photo-grid {
-  columns: 3 280px;
-  column-gap: 1rem;
-}
-.photo-grid img {
-  width: 100%;
-  margin: 0 0 1rem;
-  break-inside: avoid;
-  border-radius: 4px;
-  transition: transform 0.3s ease;
-}
-.photo-grid img:hover {
-  transform: scale(1.02);
-}
-
-/* ============ PRESSE — cards horizontales (photo à gauche, nom média en grand) ============ */
-.press-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.press-card {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 2rem;
-  padding: 1.25rem;
-  background: rgba(15, 15, 15, 0.03);
-  border: 1px solid transparent;
-  border-radius: 14px;
-  transition: all 0.3s ease;
-  align-items: stretch;
-}
-.press-card:hover {
-  background: rgba(196, 66, 31, 0.06);
-  border-color: var(--dogma-terracotta-pale);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px -10px rgba(196, 66, 31, 0.25);
-}
-
-.press-card-img {
-  width: 100%;
-  height: 180px;
-  overflow: hidden;
-  border-radius: 8px;
-  background: var(--dogma-creme);
-}
-.press-card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-.press-card:hover .press-card-img img { transform: scale(1.06); }
-
-.press-card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0.5rem 0;
-}
-.press-card-source {
-  display: block;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  line-height: 1;
-  color: var(--color-primary);
-  letter-spacing: 0.02em;
-  margin-bottom: 0.5rem;
-}
-.press-card-title {
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--color-text);
-  margin: 0 0 0.5rem;
-  line-height: 1.25;
-  opacity: 0.9;
-}
-.press-card-excerpt {
-  font-size: 0.92rem;
+.product .desc {
+  font-size: 13px;
   line-height: 1.5;
   opacity: 0.7;
-  margin: 0 0 0.75rem;
-  max-width: 680px;
+  max-width: 240px;
+  margin: 0 auto 8px;
 }
-.press-card-arrow {
-  display: inline-block;
-  font-family: var(--font-display);
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  transition: transform 0.2s ease;
-}
-.press-card:hover .press-card-arrow { transform: translateX(4px); }
-
-@media (max-width: 700px) {
-  .press-card {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  .press-card-img { height: 200px; }
-}
-
-/* ============ RÉSERVATION ============ */
-.resa-form {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 2.25rem 2rem;
-  background: rgba(15, 15, 15, 0.03);
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-.resa-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
-}
-.resa-field { display: flex; flex-direction: column; gap: 0.35rem; }
-.resa-field--full { width: 100%; }
-.resa-label {
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-}
-.resa-field input,
-.resa-field select,
-.resa-field textarea {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  padding: 0.75rem 0.9rem;
-  background: var(--color-bg);
-  border: 1px solid rgba(15, 15, 15, 0.15);
-  border-radius: 8px;
-  color: var(--color-text);
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-.resa-field input:focus,
-.resa-field select:focus,
-.resa-field textarea:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(196, 66, 31, 0.15);
-}
-.resa-field textarea { resize: vertical; min-height: 80px; }
-
-.resa-consent {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  font-size: 0.88rem;
-  line-height: 1.45;
-  opacity: 0.85;
-  margin-top: 0.25rem;
-}
-.resa-consent input { accent-color: var(--color-primary); margin-top: 0.2rem; }
-
-.resa-submit {
-  align-self: flex-start;
-  padding: 0.9rem 2rem;
-  background: var(--color-primary);
-  color: var(--dogma-creme);
-  border: none;
-  border-radius: 10px;
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.resa-submit .arrow { transition: transform 0.2s ease; font-weight: 700; }
-.resa-submit:hover { background: var(--color-primary); }
-.resa-submit:hover .arrow { transform: translateX(4px); }
-
-.resa-note {
-  font-size: 0.82rem;
-  opacity: 0.65;
-  margin: 0;
-  line-height: 1.5;
-}
-.resa-note a { color: var(--color-primary); font-weight: 600; }
-
-/* Titre de section sur la page Actus (Presse / Lectures) */
-.talks-section-title {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  color: var(--color-primary);
-  margin: 1rem 0 1.5rem;
-  letter-spacing: -0.01em;
-}
-
-/* ============ TALKS page — articles GEO ============ */
-.talks-articles {
-  display: flex;
-  flex-direction: column;
-  gap: 3.5rem;
-  max-width: 780px;
-  margin: 0 auto;
-}
-.talk {
-  background: rgba(15, 15, 15, 0.03);
-  border-radius: 14px;
-  padding: 2.5rem 2.25rem;
-  border-left: 4px solid var(--color-primary);
-}
-.talk-header { margin-bottom: 1.75rem; }
-.talk-kicker {
-  display: inline-block;
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  margin-bottom: 0.75rem;
-}
-.talk-title {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  line-height: 1.1;
-  color: var(--color-text);
-  margin: 0 0 0.75rem;
-  letter-spacing: -0.005em;
-}
-.talk-lead {
-  font-size: 1.05rem;
-  line-height: 1.55;
-  color: var(--color-text);
-  opacity: 0.85;
-  margin: 0;
-}
-.talk-body h3 {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.4rem;
-  color: var(--color-primary);
-  margin: 1.75rem 0 0.5rem;
-  letter-spacing: 0.01em;
-}
-.talk-body p, .talk-body li {
-  font-size: 0.98rem;
-  line-height: 1.65;
-  color: var(--color-text);
-  opacity: 0.88;
-}
-.talk-body ul, .talk-body ol { padding-left: 1.25rem; margin: 0.5rem 0 1rem; }
-.talk-body li { margin-bottom: 0.4rem; }
-.talk-body strong { color: var(--color-primary); }
-.talk-body a {
-  color: var(--color-primary);
+.product .price {
+  font-size: 14px;
   font-weight: 600;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.15s;
-}
-.talk-body a:hover { border-bottom-color: var(--color-primary); }
-.talk-body blockquote {
-  border-left: 3px solid var(--color-menu);
-  padding: 0.5rem 0 0.5rem 1.25rem;
-  margin: 1rem 0;
-  font-style: italic;
-  color: var(--color-text);
-  opacity: 0.9;
-}
-.talk-cite {
-  margin-top: 1.5rem !important;
-  font-size: 0.85rem !important;
-  opacity: 0.65 !important;
-  font-style: italic;
+  letter-spacing: 0.02em;
 }
 
-/* ============ COMMANDER page ============ */
-.order-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-.order-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem 1.5rem;
-  background: var(--color-primary);
-  color: var(--dogma-creme);
-  border-radius: 12px;
-  transition: all 0.25s ease;
+/* Sticky CTA delivery en bas de la page menu */
+.menu-cta {
+  position: sticky;
+  bottom: 0;
+  background: var(--creme);
+  border-top: 1px solid rgba(15,15,15,0.1);
+  padding: 16px 24px;
   text-align: center;
-  min-height: 200px;
-}
-.order-card:hover {
-  background: var(--color-primary);
-  transform: translateY(-3px);
-}
-.order-platform {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  letter-spacing: 0.02em;
-  margin-bottom: 1rem;
-}
-.order-cta {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
+  font-size: 13px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
 }
-.order-note {
-  font-size: 0.85rem;
-  opacity: 0.85;
-}
-
-/* ============ FOOTER BANNER ============ */
-.site-footer {
-  background: var(--color-bg);
-  padding: 3rem 2rem;
-  margin-top: 3rem;
-}
-/* Home : footer compact pour que tout tienne dans 100vh */
-.page-home .site-footer {
-  padding: 1rem 2rem;
-  margin-top: 0;
-  flex-shrink: 0;
-}
-.page-home .site-footer-inner { gap: 2rem; }
-.page-home .site-footer-tag { font-size: 1.1rem; margin: 0; }
-.page-home .site-footer-socials { margin-top: 0.5rem; font-size: 0.8rem; }
-.page-home .site-footer-place { font-size: 0.9rem; }
-.site-footer-inner {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 3rem;
-  align-items: end;  /* tous les cols bottom-alignés → Uber Eats / Gare du Nord / mail presse sur la même ligne Y */
-}
-.site-footer-col { display: flex; flex-direction: column; gap: 0.5rem; }
-.site-footer-col--center { align-items: center; text-align: center; }
-.site-footer-col--right { align-items: flex-end; text-align: right; }
-
-.site-footer-tag {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.4rem;
-  letter-spacing: 0.02em;
-  margin: 0 0 0.25rem;
-  color: var(--color-primary);
-}
-.site-footer-link {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
-}
-.site-footer-link:hover { border-bottom-color: var(--color-primary); }
-
-.site-footer-link--arrow .arrow {
+.menu-cta a {
   display: inline-block;
-  margin-right: 0.25rem;
-  transition: transform 0.2s ease;
-  font-weight: 700;
+  padding: 6px 12px;
 }
-.site-footer-link--arrow:hover .arrow { transform: translateX(4px); }
+.menu-cta .sep { opacity: 0.3; margin: 0 8px; }
 
-.site-footer-socials {
-  display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.site-footer-socials a {
-  color: var(--color-primary);
-  padding: 0.25rem 0;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
-}
-.site-footer-socials a:hover { border-bottom-color: var(--color-primary); }
-
-.site-footer-brand {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  letter-spacing: 0.02em;
-  line-height: 1;
-  color: var(--color-primary);
-}
-.site-footer-place {
-  font-size: 0.95rem;
-  margin: 0;  /* supprimé margin-top pour rapprocher du logo */
-  font-weight: 600;
-  color: var(--color-primary);
-  opacity: 0.85;
-}
-.site-footer-hours {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  margin: 0.5rem 0 0;
-  color: var(--color-primary);
-  opacity: 0.6;
-  line-height: 1.5;
-}
-/* Col center : gap réduit logo ↔ Paris 10 (logo descend vers Paris 10, Paris 10 reste en bas) */
-.site-footer-col--center { gap: 0.25rem; }
-
-/* Col droite : motto brand (remplace le mail presse) */
-.site-footer-motto {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  line-height: 0.95;
-  letter-spacing: 0.01em;
-  margin: 0;
-  color: var(--color-primary);
-  text-transform: uppercase;
-}
-.page-home .site-footer-motto { font-size: 1.8rem; }
-
-/* ============ Responsive ============ */
-
-/* Tablet (≤1024px) */
-@media (max-width: 1024px) {
-  .burger-grid--home { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-  .burger-grid--menu { grid-template-columns: repeat(2, 1fr); }
-  .text-item-grid { grid-template-columns: repeat(2, 1fr); }
-  .press-list { grid-template-columns: 1fr; }
-  .order-options { grid-template-columns: 1fr; }
-  .sub-nav { gap: 0.75rem; font-size: 0.85rem; }
-}
-
-/* Mobile (≤767px — breakpoint NG) */
-@media (max-width: 767px) {
-  /* Headers en column (logo au-dessus, nav en dessous) */
-  .sub-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1rem;
-  }
-  .sub-nav {
-    gap: 0.6rem 0.9rem;
-    font-size: 0.8rem;
-    justify-content: flex-start;
-    width: 100%;
-  }
-  .brand-logo { height: 56px; }
-
-  /* Home — layout scrollable, logo raisonnable, burgers 2 cols */
-  .page-home { height: auto; min-height: 0; overflow: visible; }
-  .page-home .home-stage { padding: 0 1rem 2rem; }
-  .home-header { padding: 1rem 1rem 0.5rem; }
-  .home-logo img { height: 64px; }
-
-  .burger-grid--home {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem 1rem;
-    max-width: 100%;
-  }
-  .page-home .burger-grid--home .burger img { max-height: 180px; }
-  .burger-curve { max-width: 200px; }
-  .burger-curve text { font-size: 22px; }
-
-  /* Menu page — 1 col sur vrai mobile */
-  .burger-grid--menu { grid-template-columns: 1fr; gap: 2rem; }
-  .text-item-grid { grid-template-columns: 1fr; }
-  .drinks-list { grid-template-columns: 1fr; }
-
-  /* Galerie 1 col */
-  .photo-grid { columns: 1; }
-
-  /* Titres plus compacts */
-  .sub-page-title { font-size: clamp(2.2rem, 8vw, 3rem); }
-  .menu-section-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
-
-  /* Footer stack 1 col centrée */
-  .site-footer { padding: 2rem 1rem; }
-  .site-footer-inner {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-    text-align: center;
-    align-items: center;
-  }
-  .site-footer-col, .site-footer-col--right, .site-footer-col--center {
-    align-items: center;
-    text-align: center;
-  }
-  .site-footer-socials { justify-content: center; }
-  .site-footer-brand-logo { height: 80px !important; }
-  .page-home .site-footer { padding: 1.5rem 1rem; }
-}
-
-/* Très petits écrans (≤380px, vieil iPhone SE) */
-@media (max-width: 380px) {
-  .burger-grid--home { grid-template-columns: 1fr; max-width: 280px; margin: 0 auto; }
-  .home-logo img { height: 56px; }
-}
-
+/* Réduit l'animation pour les utilisateurs qui le demandent */
 @media (prefers-reduced-motion: reduce) {
-  .burger { animation: none; }
-  .grow a, .press-item, .order-card, .photo-grid img { transition: none; }
+  .product .burger { animation: none; }
 }
