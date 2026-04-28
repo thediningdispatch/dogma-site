@@ -204,14 +204,15 @@ footer {
   .wrap {
     padding: clamp(10px, 1.8vh, 20px) 16px;
     gap: clamp(12px, 2.2vh, 22px);
+    justify-content: flex-start;   /* nav collée vers le haut, plus de remplissage central */
   }
   .hero > img:only-child { max-height: 38vh; max-width: min(380px, 90vw); }
   .hero--slideshow {
     /* height-driven : on fixe la hauteur, la largeur se déduit du aspect-ratio 3/4
        garantit un vrai portrait (vs aspect-ratio + max-height qui peut "carrérer" la box) */
     width: auto;
-    height: 56vh;
-    max-width: 80vw;
+    height: 67vh;          /* +20% vs 56vh */
+    max-width: 90vw;
     max-height: none;
   }
   .tagline {
@@ -236,7 +237,7 @@ footer {
 
 /* Très petits écrans (iPhone SE 1/2 ≈ 568-667px) : encore plus compact */
 @media (max-height: 670px) {
-  .hero--slideshow { height: 44vh; max-width: 70vw; }
+  .hero--slideshow { height: 53vh; max-width: 80vw; }
   .info { font-size: 12px; }
 }
 
