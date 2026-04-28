@@ -202,16 +202,16 @@ footer {
    triggered sur écrans étroits (<= 600px) ou peu hauts (<= 850px = iPhone 14 Pro) */
 @media (max-width: 600px), (max-height: 850px) {
   .wrap {
-    padding: clamp(8px, 1.6vh, 18px) 16px;
-    gap: clamp(6px, 1.2vh, 14px);
+    padding: clamp(10px, 1.8vh, 20px) 16px;
+    gap: clamp(12px, 2.2vh, 22px);
   }
   .hero > img:only-child { max-height: 38vh; max-width: min(380px, 90vw); }
   .hero--slideshow {
     /* height-driven : on fixe la hauteur, la largeur se déduit du aspect-ratio 3/4
        garantit un vrai portrait (vs aspect-ratio + max-height qui peut "carrérer" la box) */
     width: auto;
-    height: 48vh;
-    max-width: 75vw;
+    height: 56vh;
+    max-width: 80vw;
     max-height: none;
   }
   .tagline {
@@ -236,7 +236,7 @@ footer {
 
 /* Très petits écrans (iPhone SE 1/2 ≈ 568-667px) : encore plus compact */
 @media (max-height: 670px) {
-  .hero--slideshow { height: 38vh; max-width: 70vw; }
+  .hero--slideshow { height: 44vh; max-width: 70vw; }
   .info { font-size: 12px; }
 }
 
