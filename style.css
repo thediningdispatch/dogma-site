@@ -207,6 +207,9 @@ footer {
     justify-content: flex-start;   /* nav collée vers le haut, plus de remplissage central */
   }
   .hero > img:only-child { max-height: 38vh; max-width: min(380px, 90vw); }
+  .hero {
+    margin-top: 15vh;      /* descend la photo (et tout ce qui suit) de 15% du viewport */
+  }
   .hero--slideshow {
     /* height-driven : on fixe la hauteur, la largeur se déduit du aspect-ratio 3/4
        garantit un vrai portrait (vs aspect-ratio + max-height qui peut "carrérer" la box) */
