@@ -207,9 +207,9 @@ footer {
   }
   .hero > img:only-child { max-height: 38vh; max-width: min(380px, 90vw); }
   .hero--slideshow {
-    width: min(320px, 72vw);
-    aspect-ratio: 4 / 5;     /* moins haut, plus compact que le 3/4 desktop */
-    max-height: 42vh;
+    width: min(300px, 70vw);
+    /* aspect-ratio: 3/4 hérité du desktop (portrait, comme avant) */
+    max-height: 48vh;
   }
   .tagline {
     font-size: clamp(15px, 1.9vh, 19px);
