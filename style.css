@@ -321,3 +321,187 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .product .burger { animation: none; }
 }
+
+/* =========================================================
+   PAGE ACTU — presse + lectures (articles SEO/GEO)
+   ========================================================= */
+
+.actu-header {
+  text-align: center;
+  padding: 40px var(--gutter) 24px;
+}
+.actu-header .back {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.actu-title {
+  font-family: 'Anton', sans-serif;
+  font-style: italic;
+  font-size: clamp(48px, 9vw, 96px);
+  line-height: 1;
+  margin-bottom: 12px;
+  text-transform: lowercase;
+}
+.actu-subtitle {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 48px;
+}
+
+.actu-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px var(--gutter) 64px;
+}
+.actu-section-title {
+  font-family: 'Anton', sans-serif;
+  font-style: italic;
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 1;
+  text-transform: lowercase;
+  margin: 24px 0 32px;
+  text-align: center;
+  border-bottom: 1px solid rgba(15,15,15,0.15);
+  padding-bottom: 16px;
+}
+
+/* ---------- Presse : liste verticale, texte uniquement ---------- */
+.press-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.press-item {
+  border-bottom: 1px solid rgba(15,15,15,0.1);
+}
+.press-item:last-child { border-bottom: 0; }
+.press-item a {
+  display: block;
+  padding: 24px 0;
+  text-decoration: none;
+  transition: padding-left .25s ease, color .25s ease;
+}
+.press-item a:hover {
+  padding-left: 8px;
+  color: var(--terracotta);
+}
+.press-source {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 8px;
+}
+.press-title {
+  font-family: 'Anton', sans-serif;
+  font-style: italic;
+  font-size: clamp(20px, 3vw, 26px);
+  line-height: 1.15;
+  margin: 0 0 8px;
+  text-transform: none;
+  letter-spacing: 0.005em;
+}
+.press-excerpt {
+  font-size: 14px;
+  line-height: 1.55;
+  opacity: 0.75;
+  margin: 0 0 10px;
+}
+.press-arrow {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.press-item a:hover .press-arrow { opacity: 1; }
+
+/* ---------- Articles longs (SEO/GEO) ---------- */
+.article {
+  padding: 48px 0;
+  border-bottom: 1px solid rgba(15,15,15,0.1);
+}
+.article:last-child { border-bottom: 0; }
+
+.article-kicker {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin: 0 0 12px;
+}
+.article-title {
+  font-family: 'Anton', sans-serif;
+  font-style: italic;
+  font-size: clamp(26px, 4vw, 38px);
+  line-height: 1.1;
+  text-transform: none;
+  margin: 0 0 16px;
+  letter-spacing: 0.005em;
+}
+.article-lead {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 0 0 24px;
+}
+.article h3 {
+  font-family: 'Anton', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  text-transform: lowercase;
+  letter-spacing: 0.01em;
+  margin: 28px 0 10px;
+}
+.article p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+.article ul, .article ol {
+  margin: 0 0 16px;
+  padding-left: 24px;
+}
+.article li {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.article strong { font-weight: 600; }
+.article em { font-style: italic; }
+.article a {
+  color: var(--noir);
+  border-bottom: 1px solid rgba(15,15,15,0.3);
+  padding-bottom: 1px;
+}
+.article a:hover {
+  color: var(--terracotta);
+  border-bottom-color: var(--terracotta);
+}
+.article blockquote {
+  border-left: 2px solid var(--noir);
+  padding: 4px 0 4px 20px;
+  margin: 16px 0;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.55;
+  opacity: 0.85;
+}
+.article-cite {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.6;
+  margin-top: 24px !important;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(15,15,15,0.15);
+}
+.article-cite a { font-size: inherit; }
